@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Payment Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Payment Form</h2>
+    <form action="#" th:action="@{/paynow}" th:object="${carddetails}" method="post">
+        <p th:text=" 'Invoice No ' + ${session.invoiceId}" />
+        <p th:text=" 'Curency ' + ${session.currency}" />
+        <p th:text=" 'Total Amount due is ' + ${session.amount}" />
+    	<p>Card Number <input type="text" th:field="*{cardNumber}" size="18" maxlength="16" required="required"/></p>
+        <p>Card Holder Name<input type="text" th:field="*{cardHolderName}" required="required" placeholder="Your Name"/></p>
+        <p>Expiry Date(Month/Year) <input type="text" th:field="*{expirationMonth}" size="2" maxlength="2" required="required"/>
+        <input type="text" th:field="*{expirationYear}" size="4" maxlength="4" required="required"/></p>
+        <p>CVV <input type="text" th:field="*{securityCode}" size="3" maxlength="3" required="required"/></p>
+         
+        <!--  input type="hidden" th:field="*{invoiceNo}" value="${invoiceId}" / -->
+      
+        <p><input type="submit" value="Pay Now" /> <input type="reset" value="Clear" /></p>
+
+    </form>
+</body>
+</html>
+

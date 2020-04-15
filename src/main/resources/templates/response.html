@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Payment Response</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h3>Transaction Response</h3>
+	<td>
+    <span th:if="${cardresponse.status == 'AUTHORIZED'}">
+	     <p th:text=" 'Your transaction is ' + ${cardresponse.status}" />
+	     <p th:text="'Amount approved ' + ${cardresponse.approvedAmount}" />
+    </span>
+    <span th:if="${cardresponse.status == 'DECLINED'}">
+	     <p th:text=" 'Your transaction is ' + ${cardresponse.status}" />
+	     <p th:text="'Reason ' + ${cardresponse.reasonCode}" />
+    </span>
+    <span th:if="${cardresponse.status == 'INVALID'}">
+	     <p th:text=" 'Your invoice is ' + ${cardresponse.status}" />
+	     <p th:text="'Reason ' + ${cardresponse.reasonCode}" />
+    </span>
+    </td>
+   
+   
+</body>
+</html>
